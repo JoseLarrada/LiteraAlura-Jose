@@ -1,8 +1,8 @@
 package com.challengueAlura.literaula.repository;
 
 import com.challengueAlura.literaula.model.Autor;
-import com.challengueAlura.literaula.model.Libro;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LibroRepository extends JpaRepository<Libro,Long> {
+public interface AutorRepository extends JpaRepository<Autor, Long> {
+
 }

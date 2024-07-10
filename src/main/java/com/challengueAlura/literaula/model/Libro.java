@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 
+
 @Entity
 @Table(name = "libros")
 public class Libro {
@@ -15,9 +16,19 @@ public class Libro {
     private String titulo;
     @OneToMany(mappedBy = "libro",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Autor> autor;
-    @ManyToOne
-    private Idioma idioma;
+    private List<String> idioma;
     private Double numeroDeDescargas;
+
+    public Libro(DatosLibros datosLibros) {
+        this.titulo=datosLibros.titulo();
+        this.idioma=datosLibros.idioma();
+        this.numeroDeDescargas=datosLibros.numeroDeDescargas();
+
+    }
+
+    public Libro() {
+
+    }
 
     public Long getId() {
         return id;
@@ -43,11 +54,11 @@ public class Libro {
         this.autor = autor;
     }
 
-    public Idioma getIdioma() {
+    public List<String> getIdioma() {
         return idioma;
     }
 
-    public void setIdioma(Idioma idioma) {
+    public void setIdioma(List<String> idioma) {
         this.idioma = idioma;
     }
 
@@ -57,5 +68,15 @@ public class Libro {
 
     public void setNumeroDeDescargas(Double numeroDeDescargas) {
         this.numeroDeDescargas = numeroDeDescargas;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor=" + autor +
+                ", idioma=" + idioma +
+                ", numeroDeDescargas=" + numeroDeDescargas +
+                '}';
     }
 }
