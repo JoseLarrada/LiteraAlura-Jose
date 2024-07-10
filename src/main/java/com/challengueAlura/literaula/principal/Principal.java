@@ -5,6 +5,8 @@ import com.challengueAlura.literaula.repository.LibroRepository;
 import com.challengueAlura.literaula.service.AutoresService;
 import com.challengueAlura.literaula.service.LibrosService;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -50,6 +52,9 @@ public class Principal {
                     System.out.println("Ingrese el año en el cual dese saber que autores estaban vivos");
                     int año=teclado.nextInt();
                     autoresService.buscarAutoresVivos(año);
+                    break;
+                case 5:
+                    librosService.mostrarLibroPorLenguaje("en");
                     break;
                 case 6:
                     System.out.println("Gracias por usar nuestro sistema");

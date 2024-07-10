@@ -35,6 +35,13 @@ public class LibrosService {
          repositorio.findAll().forEach(System.out::println);
     }
 
+    public void mostrarLibroPorLenguaje(String lenguaje){
+        var list=repositorio.findAll().stream()
+                .filter(e->e.getIdioma().get(0).equals(lenguaje))
+                .collect(Collectors.toList());
+        list.forEach(System.out::println);
+    }
+
     private void guardarLibroEnBaseDeDatos(Optional<DatosLibros> libroBuscado){
         if (libroBuscado.isPresent()){
             System.out.println("Libro Encontrado");
